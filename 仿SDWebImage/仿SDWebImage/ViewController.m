@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "DownloadOperation.h"
 
 @interface ViewController ()
+
+/// 全局并发队列
+@property (nonatomic, strong) NSOperationQueue *queue;
 
 @end
 
@@ -16,7 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    // 实例化队列
+    self.queue = [NSOperationQueue new];
+    
+    // 创建自定义操作
+    DownloadOperation *op = [[DownloadOperation alloc] init];
+    
+    // 把自动的操作添加到队列
+    [self.queue addOperation:op];
 }
 
 

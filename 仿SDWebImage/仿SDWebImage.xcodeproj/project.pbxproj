@@ -13,6 +13,7 @@
 		AEDBF7E41EB32043003F1BCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEDBF7E21EB32043003F1BCB /* Main.storyboard */; };
 		AEDBF7E61EB32043003F1BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEDBF7E51EB32043003F1BCB /* Assets.xcassets */; };
 		AEDBF7E91EB32043003F1BCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEDBF7E71EB32043003F1BCB /* LaunchScreen.storyboard */; };
+		AEDBF7F41EB32271003F1BCB /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDBF7F31EB32271003F1BCB /* DownloadOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		AEDBF7E51EB32043003F1BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEDBF7E81EB32043003F1BCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEDBF7EA1EB32043003F1BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEDBF7F21EB32271003F1BCB /* DownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperation.h; sourceTree = "<group>"; };
+		AEDBF7F31EB32271003F1BCB /* DownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		AEDBF7D81EB32043003F1BCB /* 仿SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
+				AEDBF7F01EB321FE003F1BCB /* DSBWebImage */,
 				AEDBF7DC1EB32043003F1BCB /* AppDelegate.h */,
 				AEDBF7DD1EB32043003F1BCB /* AppDelegate.m */,
 				AEDBF7DF1EB32043003F1BCB /* ViewController.h */,
@@ -77,6 +81,15 @@
 				AEDBF7DA1EB32043003F1BCB /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AEDBF7F01EB321FE003F1BCB /* DSBWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				AEDBF7F21EB32271003F1BCB /* DownloadOperation.h */,
+				AEDBF7F31EB32271003F1BCB /* DownloadOperation.m */,
+			);
+			path = DSBWebImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +166,7 @@
 				AEDBF7E11EB32043003F1BCB /* ViewController.m in Sources */,
 				AEDBF7DE1EB32043003F1BCB /* AppDelegate.m in Sources */,
 				AEDBF7DB1EB32043003F1BCB /* main.m in Sources */,
+				AEDBF7F41EB32271003F1BCB /* DownloadOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
