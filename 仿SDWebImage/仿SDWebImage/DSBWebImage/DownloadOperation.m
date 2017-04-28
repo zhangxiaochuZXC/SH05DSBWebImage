@@ -40,6 +40,9 @@
 - (void)main {
     NSLog(@"%@ %@",self.urlStr,[NSThread currentThread]);
     
+    // 模拟网络延迟 : 没有实际意义
+    [NSThread sleepForTimeInterval:1.0];
+    
     // 下载图片
     NSURL *url = [NSURL URLWithString:self.urlStr];
     NSData *data = [NSData dataWithContentsOfURL:url];

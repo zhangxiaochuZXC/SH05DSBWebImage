@@ -11,6 +11,13 @@
 
 @interface DownloadOperation : NSOperation
 
+/**
+ 创建操作对象同时传入图片地址和下载完成回调
+
+ @param urlStr 图片地址
+ @param finishedBlock 下载完成回调
+ @return 操作对象
+ */
 + (instancetype)downloadOperationWithUrlStr:(NSString *)urlStr finished:(void(^)(UIImage *image))finishedBlock;
 
 @end
