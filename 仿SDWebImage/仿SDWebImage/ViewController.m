@@ -18,7 +18,12 @@
 @property (nonatomic, strong) NSOperationQueue *queue;
 /// 模型数组
 @property (nonatomic, strong) NSArray *appList;
+/// 图片控件
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+/// 操作缓存池
+@property (nonatomic, strong) NSMutableDictionary *opCache;
+/// 记录上次图片地址
+@property (nonatomic, copy) NSString *lastUrlStr;
 
 @end
 
@@ -29,6 +34,8 @@
     
     // 实例化队列
     self.queue = [NSOperationQueue new];
+    /// 实例化操作缓存池
+    self.opCache = [[NSMutableDictionary alloc] init];
     
     // 获取用于测试的数据
     [self loadData];
@@ -43,11 +50,32 @@
     // 获取随机模型和图片地址
     APPModel *app = self.appList[random];
     
+    // 在建立下载操作前,判断本次传入的URL和上次的URL是否一样,如果不一样,就需要上次正在执行的下载操作
+    if (![app.icon isEqualToString:self.lastUrlStr] && self.lastUrlStr != nil) {
+        // 获取上次正在执行的操作
+        DownloadOperation *lastOP = [self.opCache objectForKey:self.lastUrlStr];
+        if (lastOP != nil) {
+            // 取消上次正在执行的操作 : 一旦调用的该方法,cancelled属性就是YES,表示该操作是个非正常操作
+            [lastOP cancel];
+            // 已经被取消的操作,需要从操作缓存池移除
+            [self.opCache removeObjectForKey:self.lastUrlStr];
+        }
+    }
+    
+    // 记录图片地址
+    self.lastUrlStr = app.icon;
+    
     // 使用随机地址下载图片
     DownloadOperation *op = [DownloadOperation downloadOperationWithUrlStr:app.icon finished:^(UIImage *image) {
         // 展示图片
         self.iconImageView.image = image;
+        // 操作对应的图片下载结束后,也是需要移除
+        [self.opCache removeObjectForKey:app.icon];
     }];
+    
+    // 把下载操作添加到操作缓存池
+    [self.opCache setObject:op forKey:app.icon];
+    
     // 把自定义的操作添加到队列
     [self.queue addOperation:op];
 }

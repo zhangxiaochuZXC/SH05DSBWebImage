@@ -38,7 +38,7 @@
 
 /// 重写操作的入口方法,可以在这个方法里面指定自定义的操作执行的代码;该方法默认就是在子线程执行的
 - (void)main {
-    NSLog(@"%@ %@",self.urlStr,[NSThread currentThread]);
+    NSLog(@"传入 %@",self.urlStr);
     
     // 模拟网络延迟 : 没有实际意义
     [NSThread sleepForTimeInterval:1.0];
@@ -48,10 +48,17 @@
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:data];
     
+    // 需要在操作执行的过程中,判断该操作是否是被取消的 : 可以在多个位置写,但是一定要在耗时操作的后面有个判断;不要在回调后面写,已经晚了
+    if (self.cancelled == YES) {
+        NSLog(@"取消 %@",self.urlStr);
+        return;
+    }
+    
     // 图片下载结束后回调VC传入的finishedBlock,把图片传递到VC
     if (self.finishedBlock != nil) {
         // 回到主线程回调代码块
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            NSLog(@"完成 %@",self.urlStr);
             self.finishedBlock(image);
         }];
     }
