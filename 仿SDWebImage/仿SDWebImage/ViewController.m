@@ -24,23 +24,12 @@
     // 实例化队列
     self.queue = [NSOperationQueue new];
     
-    // 创建自定义操作
-    DownloadOperation *op = [[DownloadOperation alloc] init];
-    // 向自定义操作中传入图片地址
-    op.urlStr = @"http://paper.taizhou.com.cn/tzwb/res/1/2/2015-01/20/12/res03_attpic_brief.jpg";
-    
-    // 准备并传递刷新UI的代码块
-    [op setFinishedBlock:^(UIImage *image) {
+    // 图片地址
+    NSString *urlStr = @"http://paper.taizhou.com.cn/tzwb/res/1/2/2015-01/20/12/res03_attpic_brief.jpg";
+
+    DownloadOperation *op = [DownloadOperation downloadOperationWithUrlStr:urlStr finished:^(UIImage *image) {
         NSLog(@"%@ %@",image,[NSThread currentThread]);
     }];
-    
-    /*
-    void(^finishedBlock)() = ^(UIImage *image){
-        NSLog(@"%@",image);
-    };
-    //  传递到op
-    op.finishedBlock = finishedBlock;
-     */
     
     // 把自动的操作添加到队列
     [self.queue addOperation:op];

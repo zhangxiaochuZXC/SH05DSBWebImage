@@ -14,7 +14,27 @@
  2.需要外界传入下载完成的Block(回调)
  */
 
+@interface DownloadOperation ()
+
+/// 用于记录外界传入的图片URL
+@property (nonatomic, copy) NSString *urlStr;
+/// 用于记录外界传入的代码块Block
+@property (nonatomic, copy) void(^finishedBlock)(UIImage *image);
+
+@end
+
 @implementation DownloadOperation
+
++ (instancetype)downloadOperationWithUrlStr:(NSString *)urlStr finished:(void (^)(UIImage *))finishedBlock {
+    
+    DownloadOperation *op = [DownloadOperation new];
+    
+    // 保存外界传入的图片地址和下载完成的回调
+    op.urlStr = urlStr;
+    op.finishedBlock = finishedBlock;
+    
+    return op;
+}
 
 /// 重写操作的入口方法,可以在这个方法里面指定自定义的操作执行的代码;该方法默认就是在子线程执行的
 - (void)main {
