@@ -25,6 +25,7 @@
 
 @implementation DownloadOperation
 
+/// OP接收Manager传入的图片地址和Manager的下载完成的回调
 + (instancetype)downloadOperationWithUrlStr:(NSString *)urlStr finished:(void (^)(UIImage *))finishedBlock {
     
     DownloadOperation *op = [DownloadOperation new];
@@ -54,7 +55,7 @@
         return;
     }
     
-    // 图片下载结束后回调VC传入的finishedBlock,把图片传递到VC
+    // 图片下载结束后回调Manager传入的finishedBlock,把图片传递到Manager
     if (self.finishedBlock != nil) {
         // 回到主线程回调代码块
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{

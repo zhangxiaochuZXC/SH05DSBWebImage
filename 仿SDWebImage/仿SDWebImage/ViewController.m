@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "YYModel.h"
 #import "APPModel.h"
+#import "DownloadOperationManager.h"
 
 @interface ViewController ()
 
@@ -65,19 +66,11 @@
     // 记录图片地址
     self.lastUrlStr = app.icon;
     
-    // 使用随机地址下载图片
-    DownloadOperation *op = [DownloadOperation downloadOperationWithUrlStr:app.icon finished:^(UIImage *image) {
+    // 单例接管下载操作 : VC把图片地址和下载完成的回调传递到Manager
+    [[DownloadOperationManager sharedManager] downloadWithUrlStr:app.icon finished:^(UIImage *image) {
         // 展示图片
         self.iconImageView.image = image;
-        // 操作对应的图片下载结束后,也是需要移除
-        [self.opCache removeObjectForKey:app.icon];
     }];
-    
-    // 把下载操作添加到操作缓存池
-    [self.opCache setObject:op forKey:app.icon];
-    
-    // 把自定义的操作添加到队列
-    [self.queue addOperation:op];
 }
 
 /// 获取数据的主方法 : 用于测试的数据,需要提前获取到

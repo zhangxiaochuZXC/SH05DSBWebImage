@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE7318A91EBAC6630008BF88 /* DownloadOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7318A81EBAC6630008BF88 /* DownloadOperationManager.m */; };
 		AE86EF611EB3359B00C25572 /* APPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE86EF601EB3359B00C25572 /* APPModel.m */; };
 		AE86EF991EB335A600C25572 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE86EF651EB335A600C25572 /* AFHTTPSessionManager.m */; };
 		AE86EF9A1EB335A600C25572 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE86EF681EB335A600C25572 /* AFNetworkReachabilityManager.m */; };
@@ -42,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE7318A71EBAC6630008BF88 /* DownloadOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperationManager.h; sourceTree = "<group>"; };
+		AE7318A81EBAC6630008BF88 /* DownloadOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadOperationManager.m; sourceTree = "<group>"; };
 		AE86EF5F1EB3359B00C25572 /* APPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPModel.h; sourceTree = "<group>"; };
 		AE86EF601EB3359B00C25572 /* APPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPModel.m; sourceTree = "<group>"; };
 		AE86EF641EB335A600C25572 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -251,6 +254,8 @@
 			children = (
 				AEDBF7F21EB32271003F1BCB /* DownloadOperation.h */,
 				AEDBF7F31EB32271003F1BCB /* DownloadOperation.m */,
+				AE7318A71EBAC6630008BF88 /* DownloadOperationManager.h */,
+				AE7318A81EBAC6630008BF88 /* DownloadOperationManager.m */,
 			);
 			path = DSBWebImage;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 				AE86EFA91EB335A600C25572 /* UIImage+GIF.m in Sources */,
 				AE86EF9C1EB335A600C25572 /* AFURLRequestSerialization.m in Sources */,
 				AE86EFA71EB335A600C25572 /* SDWebImagePrefetcher.m in Sources */,
+				AE7318A91EBAC6630008BF88 /* DownloadOperationManager.m in Sources */,
 				AEDBF7E11EB32043003F1BCB /* ViewController.m in Sources */,
 				AEDBF7DE1EB32043003F1BCB /* AppDelegate.m in Sources */,
 				AE86EFA01EB335A600C25572 /* NSData+ImageContentType.m in Sources */,
