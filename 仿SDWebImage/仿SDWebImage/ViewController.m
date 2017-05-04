@@ -53,14 +53,18 @@
     
     // 在建立下载操作前,判断本次传入的URL和上次的URL是否一样,如果不一样,就需要上次正在执行的下载操作
     if (![app.icon isEqualToString:self.lastUrlStr] && self.lastUrlStr != nil) {
-        // 获取上次正在执行的操作
-        DownloadOperation *lastOP = [self.opCache objectForKey:self.lastUrlStr];
-        if (lastOP != nil) {
-            // 取消上次正在执行的操作 : 一旦调用的该方法,cancelled属性就是YES,表示该操作是个非正常操作
-            [lastOP cancel];
-            // 已经被取消的操作,需要从操作缓存池移除
-            [self.opCache removeObjectForKey:self.lastUrlStr];
-        }
+        
+        // 单例接管取消操作
+        [[DownloadOperationManager sharedManager] cancelOperationWithLastUrlStr:self.lastUrlStr];
+        
+//        // 获取上次正在执行的操作
+//        DownloadOperation *lastOP = [self.opCache objectForKey:self.lastUrlStr];
+//        if (lastOP != nil) {
+//            // 取消上次正在执行的操作 : 一旦调用的该方法,cancelled属性就是YES,表示该操作是个非正常操作
+//            [lastOP cancel];
+//            // 已经被取消的操作,需要从操作缓存池移除
+//            [self.opCache removeObjectForKey:self.lastUrlStr];
+//        }
     }
     
     // 记录图片地址
