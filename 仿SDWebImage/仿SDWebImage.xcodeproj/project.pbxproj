@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AE7318A91EBAC6630008BF88 /* DownloadOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7318A81EBAC6630008BF88 /* DownloadOperationManager.m */; };
+		AE7318AC1EBAD5530008BF88 /* NSString+path.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7318AB1EBAD5530008BF88 /* NSString+path.m */; };
+		AE7318AF1EBAD8E60008BF88 /* UIImageView+DSB.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7318AE1EBAD8E60008BF88 /* UIImageView+DSB.m */; };
 		AE86EF611EB3359B00C25572 /* APPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE86EF601EB3359B00C25572 /* APPModel.m */; };
 		AE86EF991EB335A600C25572 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE86EF651EB335A600C25572 /* AFHTTPSessionManager.m */; };
 		AE86EF9A1EB335A600C25572 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE86EF681EB335A600C25572 /* AFNetworkReachabilityManager.m */; };
@@ -45,6 +47,10 @@
 /* Begin PBXFileReference section */
 		AE7318A71EBAC6630008BF88 /* DownloadOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperationManager.h; sourceTree = "<group>"; };
 		AE7318A81EBAC6630008BF88 /* DownloadOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadOperationManager.m; sourceTree = "<group>"; };
+		AE7318AA1EBAD5530008BF88 /* NSString+path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+path.h"; sourceTree = "<group>"; };
+		AE7318AB1EBAD5530008BF88 /* NSString+path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+path.m"; sourceTree = "<group>"; };
+		AE7318AD1EBAD8E60008BF88 /* UIImageView+DSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+DSB.h"; sourceTree = "<group>"; };
+		AE7318AE1EBAD8E60008BF88 /* UIImageView+DSB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+DSB.m"; sourceTree = "<group>"; };
 		AE86EF5F1EB3359B00C25572 /* APPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPModel.h; sourceTree = "<group>"; };
 		AE86EF601EB3359B00C25572 /* APPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPModel.m; sourceTree = "<group>"; };
 		AE86EF641EB335A600C25572 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -252,10 +258,14 @@
 		AEDBF7F01EB321FE003F1BCB /* DSBWebImage */ = {
 			isa = PBXGroup;
 			children = (
+				AE7318AA1EBAD5530008BF88 /* NSString+path.h */,
+				AE7318AB1EBAD5530008BF88 /* NSString+path.m */,
 				AEDBF7F21EB32271003F1BCB /* DownloadOperation.h */,
 				AEDBF7F31EB32271003F1BCB /* DownloadOperation.m */,
 				AE7318A71EBAC6630008BF88 /* DownloadOperationManager.h */,
 				AE7318A81EBAC6630008BF88 /* DownloadOperationManager.m */,
+				AE7318AD1EBAD8E60008BF88 /* UIImageView+DSB.h */,
+				AE7318AE1EBAD8E60008BF88 /* UIImageView+DSB.m */,
 			);
 			path = DSBWebImage;
 			sourceTree = "<group>";
@@ -338,10 +348,12 @@
 				AEDBF7E11EB32043003F1BCB /* ViewController.m in Sources */,
 				AEDBF7DE1EB32043003F1BCB /* AppDelegate.m in Sources */,
 				AE86EFA01EB335A600C25572 /* NSData+ImageContentType.m in Sources */,
+				AE7318AC1EBAD5530008BF88 /* NSString+path.m in Sources */,
 				AEDBF7DB1EB32043003F1BCB /* main.m in Sources */,
 				AE86EF9E1EB335A600C25572 /* AFURLSessionManager.m in Sources */,
 				AE86EFB01EB335A600C25572 /* YYClassInfo.m in Sources */,
 				AE86EFA81EB335A600C25572 /* UIButton+WebCache.m in Sources */,
+				AE7318AF1EBAD8E60008BF88 /* UIImageView+DSB.m in Sources */,
 				AE86EFA51EB335A600C25572 /* SDWebImageDownloaderOperation.m in Sources */,
 				AE86EF9F1EB335A600C25572 /* MKAnnotationView+WebCache.m in Sources */,
 				AE86EFA21EB335A600C25572 /* SDWebImageCompat.m in Sources */,
